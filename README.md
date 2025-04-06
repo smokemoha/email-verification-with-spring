@@ -3,7 +3,8 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-green)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14.x-blue)
 
-An  email verification system built with Spring Boot that provides secure user registration with email verification functionality.
+A Spring Boot project showcasing user registration, email verification via a tokenized verification link, and secure user login.
+
  Features
 - User Registration: Secure sign-up process with validation
 - Email Verification: Token-based email verification system
