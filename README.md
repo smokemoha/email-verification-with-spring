@@ -9,7 +9,7 @@ A Spring Boot project showcasing user registration, email verification via a tok
 - User Registration: Secure sign-up process with validation
 - Email Verification: Token-based email verification system
 - Authentication: Secure login with Spring Security
-- Modern UI**: Clean, responsive interface built with Bootstrap
+- Modern UI: Clean, responsive interface built with Bootstrap
 - Database Storage: Persistent data storage with PostgreSQL
  Technologies
 - Backend: Spring Boot, Spring Security, Spring Data JPA
