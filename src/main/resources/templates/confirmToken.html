@@ -1,20 +1,25 @@
 <!DOCTYPE html>
+<!-- Thymeleaf template for email verification confirmation page -->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verified - Email Verification System</title>
+    <!-- External CSS libraries: Bootstrap for layout and Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* CSS custom properties (variables) for consistent theming */
         :root {
-            --primary-color: #4e73df;
-            --secondary-color: #f8f9fc;
-            --accent-color: #2e59d9;
-            --text-color: #5a5c69;
-            --success-color: #1cc88a;
+            --primary-color: #4e73df;    /* Main brand color for buttons and accents */
+            --secondary-color: #f8f9fc;  /* Background color */
+            --accent-color: #2e59d9;     /* Hover state color */
+            --text-color: #5a5c69;       /* Main text color */
+            --success-color: #1cc88a;    /* Color for success indicators */
         }
         
+        /* Base body styling with flexbox for centering content vertically and horizontally */
         body {
             font-family: 'Nunito', sans-serif;
             background-color: var(--secondary-color);
@@ -27,6 +32,7 @@
             padding: 1rem;
         }
         
+        /* Container for responsive layout */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -35,6 +41,8 @@
             justify-content: center;
             align-items: center;
         }
+        
+        /* Card styling for the main content box */
         .card {
             border-radius: 1rem;
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -44,16 +52,19 @@
             text-align: center;
         }
         
+        /* Inner padding for the card content */
         .card-body {
             padding: 3rem;
         }
         
+        /* Styling for the success checkmark icon */
         .success-icon {
             font-size: 5rem;
             color: var(--success-color);
             margin-bottom: 1.5rem;
         }
         
+        /* Primary button styling */
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -63,11 +74,13 @@
             margin-top: 1.5rem;
         }
         
+        /* Hover state for primary button */
         .btn-primary:hover {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
         }
         
+        /* Application logo styling */
         .logo {
             font-size: 2rem;
             font-weight: 700;
@@ -75,27 +88,35 @@
             margin-bottom: 1.5rem;
         }
         
+        /* Spacing for the icon in the logo */
         .logo i {
             margin-right: 0.5rem;
         }
     </style>
 </head>
 <body>
+    <!-- Main container for centering content -->
     <div class="container">
+        <!-- Card component for the confirmation message -->
         <div class="card">
             <div class="card-body">
+                <!-- Application logo with icon -->
                 <div class="logo">
                     <i class="fas fa-envelope-open-text"></i>
                     <span>VerifyMe</span>
                 </div>
                 
+                <!-- Success checkmark icon -->
                 <div class="success-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
                 
+                <!-- Confirmation message heading -->
                 <h2 class="mb-3">Confirmed!</h2>
+                <!-- Detailed confirmation message -->
                 <p class="mb-4">Your email has been verified and your account is now active. You can now login to access all features.</p>
                 
+                <!-- Login button with Thymeleaf link to the login page -->
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <a th:href="@{/login}" class="btn btn-primary">
                         <i class="fas fa-sign-in-alt me-2"></i>Login Now
@@ -105,6 +126,7 @@
         </div>
     </div>
     
+    <!-- Bootstrap JavaScript bundle for any interactive components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

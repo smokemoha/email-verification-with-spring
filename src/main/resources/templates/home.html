@@ -1,63 +1,102 @@
 <!DOCTYPE html>
+<!-- Thymeleaf template for the home page after successful authentication -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
+    <!-- External CSS libraries: Bootstrap for layout and Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* CSS custom properties (variables) for consistent theming */
         :root {
-            --primary-color: #4e73df;
-            --secondary-color: #f8f9fc;
-            --accent-color: #2e59d9;
-            --text-color: #5a5c69;
+            --primary-color: #4e73df;    /* Main brand color for buttons and accents */
+            --secondary-color: #020303;  /* Secondary color for contrast elements */
+            --accent-color: #2e59d9;     /* Hover state color */
+            --text-color: #5a5c69;       /* Main text color */
         }
+        /* Base body styling with padding to accommodate fixed navbar */
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: var(--secondary-color);
+            background-color: var( --primary-color); /* Background uses primary brand color */
             color: var(--text-color);
             min-height: 100vh;
-            padding-top: 70px;
+            padding-top: 70px; /* Space for fixed navbar */
         }
-        .navbar {
-            background-color: white;
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-        }
+        /* Navbar brand styling */
         .navbar-brand {
             color: var(--primary-color);
             font-weight: 700;
         }
+        /* Hover state for navbar brand */
+        .navbar-brand:hover {
+            color: var(--primary-color);
+        }
+        /* Navigation link styling */
+        .nav-link {
+            color: var(--primary-color) !important; /* Override Bootstrap defaults */
+        }
+        /* Hover state for navigation links */
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        /* Icon styling in navigation links */
+        .nav-link i {
+            color: var(--primary-color);
+        }
+        /* Main content card styling */
         .welcome-card {
             border-radius: 0.5rem;
             box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
             margin-top: 2rem;
         }
+        /* Navbar background and shadow */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        }
+       
+        /* Duplicate welcome-card styling (could be removed) */
+        .welcome-card {
+            border-radius: 0.5rem;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            margin-top: 2rem;
+        }
+        /* Card header styling with primary color background */
         .card-header {
             background-color: var(--primary-color);
             color: white;
-            border-radius: 0.5rem 0.5rem 0 0 !important;
+            border-radius: 0.5rem 0.5rem 0 0 !important; /* Rounded top corners */
         }
     </style>
 </head>
 <body>
+    <!-- Fixed navigation bar at the top of the page -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
+            <!-- Application logo and name -->
             <a class="navbar-brand" href="/home">
                 <i class="fas fa-envelope me-2"></i>Email Verification System
             </a>
+            <!-- Mobile navigation toggle button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- Navigation menu items -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <!-- Home navigation item (currently active) -->
                     <li class="nav-item">
                         <a class="nav-link active" href="/home">
                             <i class="fas fa-home me-1"></i>Home
                         </a>
                     </li>
+                   
+                    <!-- Logout navigation item (currently non-functional) -->
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">
+                        <a class="nav-link" href="#" onclick="return false;">
                             <i class="fas fa-sign-out-alt me-1"></i>Logout
                         </a>
                     </li>
@@ -66,19 +105,26 @@
         </div>
     </nav>
 
+    <!-- Main content container -->
     <div class="container">
+        <!-- Welcome card displaying user status -->
         <div class="card welcome-card">
+            <!-- Card header with welcome message -->
             <div class="card-header">
                 <h4><i class="fas fa-home me-2"></i>Welcome</h4>
             </div>
+            <!-- Card body with user information -->
             <div class="card-body">
                 <h5 class="card-title">Hello!</h5>
                 <p class="card-text">You have successfully logged in!</p>
                 <hr>
+                <!-- User account status information -->
                 <div class="d-flex justify-content-between">
+                    <!-- Account status indicator -->
                     <div>
                         <small class="text-muted">Account Status: <span class="badge bg-success">Active</span></small>
                     </div>
+                    <!-- Email verification status indicator -->
                     <div>
                         <small class="text-muted">Email Verified: <span class="badge bg-success">Yes</span></small>
                     </div>
@@ -87,6 +133,7 @@
         </div>
     </div>
 
+    <!-- Bootstrap JavaScript bundle for interactive components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

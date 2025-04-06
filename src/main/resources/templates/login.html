@@ -1,19 +1,24 @@
 <!DOCTYPE html>
+<!-- Thymeleaf template for the login page of the Email Verification System -->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Email Verification System</title>
+    <!-- External CSS libraries: Bootstrap for layout and Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* CSS custom properties (variables) for consistent theming */
         :root {
-            --primary-color: #4e73df;
-            --secondary-color: #f8f9fc;
-            --accent-color: #2e59d9;
-            --text-color: #5a5c69;
+            --primary-color: #4e73df;    /* Main brand color for buttons and accents */
+            --secondary-color: #f8f9fc;  /* Background color */
+            --accent-color: #2e59d9;     /* Hover state color */
+            --text-color: #5a5c69;       /* Main text color */
         }
         
+        /* Base body styling with flexbox for centering content vertically and horizontally */
         body {
             font-family: 'Nunito', sans-serif;
             background-color: var(--secondary-color);
@@ -26,6 +31,7 @@
             padding: 1rem;
         }
         
+        /* Container for responsive layout */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -35,6 +41,7 @@
             align-items: center;
         }
         
+        /* Card styling for the main content box */
         .card {
             border-radius: 1rem;
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -43,11 +50,12 @@
             width: 100%;
         }
         
+        /* Inner padding for the card content */
         .card-body {
             padding: 2rem;
         }
         
-        /* Smoke design with glossy effect */
+        /* Decorative background for the right side of the card with animated effect */
         .card-img {
             background: #4E6CF9;
             position: relative;
@@ -55,6 +63,7 @@
             min-height: 100%;
         }
         
+        /* Pseudo-element for creating animated gradient background */
         .card-img::before {
             content: '';
             position: absolute;
@@ -65,9 +74,10 @@
             background: radial-gradient(circle at center, #4685eb, #2597eb);
             transform: translate(-50%, -50%);
             opacity: 0.7;
-            animation: smoke 15s infinite alternate;
+            animation: smoke 15s infinite alternate; /* Animation for the smoke effect */
         }
         
+        /* Pseudo-element for creating glossy overlay effect */
         .card-img::after {
             content: '';
             position: absolute;
@@ -79,6 +89,7 @@
             pointer-events: none;
         }
         
+        /* Keyframes animation for the smoke background effect */
         @keyframes smoke {
             0% {
                 transform: translate(-50%, -50%) scale(1) rotate(0deg);
@@ -94,15 +105,16 @@
             }
         }
         
-        /* Smoke elements */
+        /* Styling for the smoke elements that create depth in the background */
         .smoke-1, .smoke-2, .smoke-3 {
             position: absolute;
             border-radius: 50%;
             background: radial-gradient(circle at center, rgba(70, 133, 235, 0.8), rgba(37, 151, 235, 0.4), transparent);
             filter: blur(20px);
-            animation: float 20s infinite ease-in-out;
+            animation: float 20s infinite ease-in-out; /* Animation for floating effect */
         }
         
+        /* Positioning and sizing for first smoke element */
         .smoke-1 {
             width: 300px;
             height: 300px;
@@ -111,22 +123,25 @@
             animation-delay: 0s;
         }
         
+        /* Positioning and sizing for second smoke element */
         .smoke-2 {
             width: 200px;
             height: 200px;
             bottom: 10%;
             right: -50px;
-            animation-delay: 5s;
+            animation-delay: 5s; /* Offset animation for varied movement */
         }
         
+        /* Positioning and sizing for third smoke element */
         .smoke-3 {
             width: 250px;
             height: 250px;
             bottom: 40%;
             left: 30%;
-            animation-delay: 10s;
+            animation-delay: 10s; /* Offset animation for varied movement */
         }
         
+        /* Keyframes animation for the floating smoke elements */
         @keyframes float {
             0%, 100% {
                 transform: translateY(0) scale(1);
@@ -138,7 +153,7 @@
             }
         }
         
-        /* Glossy effect */
+        /* Additional glossy overlay for enhanced visual effect */
         .glossy-overlay {
             position: absolute;
             top: 0;
@@ -156,6 +171,7 @@
             border-radius: 0 1rem 1rem 0;
         }
         
+        /* Primary button styling */
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -164,30 +180,36 @@
             border-radius: 0.5rem;
         }
         
+        /* Hover state for primary button */
         .btn-primary:hover {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
         }
         
+        /* Form control styling for inputs */
         .form-control {
             border-radius: 0.5rem;
             padding: 0.75rem 1rem;
             font-size: 0.9rem;
         }
         
+        /* Label positioning for floating labels */
         .form-floating label {
             padding: 0.75rem 1rem;
         }
         
+        /* Active state for floating labels */
         .form-floating>.form-control:focus~label {
             color: var(--primary-color);
         }
         
+        /* Focus state for form controls */
         .form-control:focus {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
         }
         
+        /* Application logo styling */
         .logo {
             font-size: 2rem;
             font-weight: 700;
@@ -195,10 +217,12 @@
             margin-bottom: 1.5rem;
         }
         
+        /* Spacing for the icon in the logo */
         .logo i {
             margin-right: 0.5rem;
         }
         
+        /* Alert message styling */
         .alert {
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
@@ -206,11 +230,15 @@
     </style>
 </head>
 <body>
+    <!-- Main container for centering content -->
     <div class="container">
+        <!-- Card component for the login form and decorative background -->
         <div class="card">
             <div class="row g-0">
+                <!-- Left column containing the login form -->
                 <div class="col-md-6">
                     <div class="card-body">
+                        <!-- Application logo and welcome message -->
                         <div class="text-center">
                             <div class="logo">
                                 <i class="fas fa-envelope-open-text"></i>
@@ -219,27 +247,33 @@
                             <h4 class="mb-4">Welcome Back!</h4>
                         </div>
                         
+                        <!-- Error message display using Thymeleaf conditional rendering -->
                         <div th:if="${param.error}" class="alert alert-danger">
                             <i class="fas fa-exclamation-circle me-2"></i>
                             Invalid username and password.
                         </div>
                         
+                        <!-- Logout confirmation message using Thymeleaf conditional rendering -->
                         <div th:if="${param.logout}" class="alert alert-success">
                             <i class="fas fa-check-circle me-2"></i>
                             You have been logged out.
                         </div>
                         
+                        <!-- Login form with POST method to /login endpoint -->
                         <form method="post" th:action="@{/login}">
+                            <!-- Username input field with floating label -->
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                                 <label for="username">Username</label>
                             </div>
                             
+                            <!-- Password input field with floating label -->
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                                 <label for="password">Password</label>
                             </div>
                             
+                            <!-- Remember me checkbox option -->
                             <div class="form-check mb-3">
                                 <input class="form-check-input" type="checkbox" id="remember-me" name="remember-me">
                                 <label class="form-check-label" for="remember-me">
@@ -247,6 +281,7 @@
                                 </label>
                             </div>
                             
+                            <!-- Login button -->
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-sign-in-alt me-2"></i>Login
@@ -254,16 +289,20 @@
                             </div>
                         </form>
                         
+                        <!-- Registration link for new users -->
                         <div class="text-center mt-4">
                             <p>Don't have an account? <a th:href="@{/register}" class="text-decoration-none">Register here</a></p>
                         </div>
                     </div>
                 </div>
+                <!-- Right column with decorative background (hidden on small screens) -->
                 <div class="col-md-6 d-none d-md-block">
                     <div class="card-img">
+                        <!-- Animated smoke elements for visual effect -->
                         <div class="smoke-1"></div>
                         <div class="smoke-2"></div>
                         <div class="smoke-3"></div>
+                        <!-- Glossy overlay for enhanced visual effect -->
                         <div class="glossy-overlay"></div>
                     </div>
                 </div>
@@ -271,6 +310,7 @@
         </div>
     </div>
     
+    <!-- Bootstrap JavaScript bundle for interactive components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
